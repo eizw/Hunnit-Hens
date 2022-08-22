@@ -1,0 +1,41 @@
+<%- include('partials/head') %>
+
+<div class="container">
+    <div id="hunnit-hens">
+        <div id="countdown"></div>
+        <div id="result-screen">
+            <div id="final-score"></div>
+            <form onsubmit="newScore(event)">
+                <input type="text" name="name" required>
+                <input type="submit">
+            </form>
+        </div>
+        <div id="board"></div>
+        <div id="chicken-count">Chickens: </div>
+        <div id="timer"></div>
+    </div>
+        <p style="font-family: olive_daysregular; font-size: 36px; margin: 0;">Leaderboards</p>
+        <table id="scoreboard">
+        <% if (players) { %>
+            <% for(i=0; i < players.length; i++) { %>
+                <% if (i==10) { %>
+                    <% break; %>
+                <% } %>
+                <tr>
+                <% if (i==0) { %>
+                    <td style="color: gold;"><%= i + 1 %></td>
+                <% } else if (i==1) { %>
+                    <td style="color: silver;"><%= i + 1 %></td>
+                <% } else if (i==2) { %>
+                    <td style="color: rgb(250, 104, 0);"><%= i + 1 %></td>
+                <% } else { %>
+                    <td><%= i + 1 %></td>
+                <% } %>
+                    <td><%= players[i].name %></td>
+                    <td><%= players[i].score %></td>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
+</div>
+<%- include('partials/foot') %>

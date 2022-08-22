@@ -1,0 +1,195 @@
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+    --grass: rgb(44, 179, 51);
+    --time: 100%;
+    --gap: 14px;
+}
+
+* {
+    font-family: 'olive_daysregular';
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+html {
+    background-image: url('../img/background.png');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'olive_daysregular';
+    src: url('../fonts/olive_days-webfont.woff2') format('woff2'),
+         url('../fonts/olive_days-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#start-menu {
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+#start-menu * {
+    text-align: center;
+    margin: 10px;
+    font-family: 'olive_daysregular';
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 125px;
+}
+
+#desc {
+    color: gray;
+    font-size: 30px;
+}
+
+#hunnit-hens {
+    margin: 24px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 75%;
+    gap: 24px;
+}
+
+#board, #chicken-board {
+    height: 550px;
+    width: 550px;
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+#chicken-board {
+    position: fixed;
+    z-index: -1;
+}
+#board {
+    position: relative;
+    cursor: pointer;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.grid-box {
+    text-align: center;
+    border: 1px solid white;
+
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    aspect-ratio: 1;
+}
+.grass {
+    background-color: var(--grass);
+}
+.chicken {
+    background-image: url('../img/chicken.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#chicken-count {
+    font-family: 'olive_daysregular';
+    text-align: center;
+    font-size: 52px;
+}
+
+#countdown {
+    font-family: 'olive_daysregular';
+    font-size: 100px;
+    color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 550px;
+    height: 634px;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    cursor: pointer;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+#timer {
+    visibility: hidden;
+    width: var(--time);
+    flex-basis: 30px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    background-color: chartreuse;
+}
+
+#result-screen {
+    padding: 24px;
+    flex-direction: column;
+    margin-top: 112.5px;
+    height: 225px;
+    width: 550px;
+    display: none;
+    color: white;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+#final-score {
+    text-align: center;
+    font-size: 24px;
+    flex-basis: 50%;
+}
+#result-screen input[type="text"] {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    height: 24px;
+}
+#result-screen input[type="text"]:active {
+    outline: none;
+}
+#result-screen input[type="submit"] {
+    background-color: rgb(255, 171, 140);
+}
+
+#scoreboard {
+    font-family: 'olive_daysregular';
+    width: 50%;
+    margin-bottom: 24px;
+    font-size: 35px;
+    color: white;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#scoreboard th {
+    color: black;
+}
